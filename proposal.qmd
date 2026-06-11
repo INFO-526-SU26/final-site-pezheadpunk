@@ -1,11 +1,11 @@
 ---
-title: "Proposal title"
+title: "Pokémon Dataset Analysis"
 subtitle: "Proposal"
 author: 
-  - name: "Team Name"
+  - name: "David Kennedy (Pezheadpunk)"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Asking and answering two questions about the Pokémon Dataset with data visualizations, and presentation of the findings"
 format:
   html:
     code-tools: true
@@ -32,6 +32,25 @@ library(tidyverse)
 ```
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+
+## Dataset Description
+
+### Provenance 
+The data in this dataset came from https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-04-01 and was originally sourced and processed using [PokéAPI](https://pokeapi.co), an open-source, programmatic database containing comprehensive metadata about the Pokémon video game franchise. The dataset combines official in-game mechanical statistics (such as combat attributes and breeding groups) with multimedia design elements pulled directly from community-run encyclopedia archives like [Bulbagarden](https://bulbagarden.net).
+
+### Dimensions and Scale
+*   **Observations (Rows):** The dataset catalogs entries tracking unique Pokémon species, distinct forms, and regional variations across **7 historical game generations**.
+*   **Variables (Columns):** The schema consists of **22 distinct variables** that map both numerical attributes and structural metadata for each entry.
+
+### Structure & Variable Groupings
+The attributes within this file are split across three primary structural categories:
+
+1. **Core Identity Metadata:** Unique tracking metrics including systemic indexes (`id`, `species_id`), common naming conventions (`pokemon`), and generational release timelines (`generation_id`).
+2. **Combat & Biological Mechanics:** Core battle metrics mapping scale properties (`height`, `weight`), growth baselines (`base_experience`), combat attributes (`hp`, `attack`, `defense`, `special_attack`, `special_defense`, `speed`), elemental profiles (`type_1`, `type_2`), and biological mechanics (`egg_group_1`, `egg_group_2`).
+3. **Aesthetic & Multimedia Assets:** Design-oriented properties mapping primary interface layouts including hexadecimal theme color schemes (`color_1`, `color_2`, `color_f`) alongside direct asset links (`url_icon`, `url_image`).
+
+### Why I Chose This Dataset
+I chose this dataset because I have played every generation of Pokemon games since the original on Gameboy. I though it would be interesting to explore a dataset involving data from a game series that I am very familar with as fan.
 
 Make sure to load the data and use inline code for some of this information.
 
