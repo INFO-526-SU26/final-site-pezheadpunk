@@ -1,11 +1,11 @@
 ---
-title: "Pokémon Dataset Analysis"
+title: "Pokemon Dataset Analysis"
 subtitle: "Proposal"
 author: 
-  - name: "David Kennedy (Pezheadpunk)"
+  - name: "David Kennedy (pezheadpunk)"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Asking and answering two questions about the Pokémon Dataset with data visualizations, and presentation of the findings"
+description: "Asking and answering two questions about the Pokemon Dataset with data visualizations, and a presentation of the findings"
 format:
   html:
     code-tools: true
@@ -26,38 +26,84 @@ library(tidyverse)
 
 ## Dataset
 
+pokemon_df.csv
+
 ```{r}
 #| label: load-dataset
 #| message: false
+pokemon_data <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-04-01/pokemon_df.csv") 
 ```
-
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
 
 ## Dataset Description
 
-### Provenance 
-The data in this dataset came from https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-04-01 and was originally sourced and processed using [PokéAPI](https://pokeapi.co), an open-source, programmatic database containing comprehensive metadata about the Pokémon video game franchise. The dataset combines official in-game mechanical statistics (such as combat attributes and breeding groups) with multimedia design elements pulled directly from community-run encyclopedia archives like [Bulbagarden](https://bulbagarden.net).
+### Provenance
 
-### Dimensions and Scale
-*   **Observations (Rows):** The dataset catalogs entries tracking unique Pokémon species, distinct forms, and regional variations across **7 historical game generations**.
-*   **Variables (Columns):** The schema consists of **22 distinct variables** that map both numerical attributes and structural metadata for each entry.
+The data in this dataset came from [tidytuesday](https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-04-0), and was originally sourced and processed using [PokéAPI](https://pokeapi.co), an open-source, programmatic database containing comprehensive metadata about the Pokemon video game franchise. The dataset combines official in-game mechanical statistics (such as combat attributes and breeding groups) with multimedia design elements pulled directly from community-run encyclopedia archives like [Bulbagarden](https://bulbagarden.net).
 
-### Structure & Variable Groupings
-The attributes within this file are split across three primary structural categories:
+### Dimensions and Structure
 
-1. **Core Identity Metadata:** Unique tracking metrics including systemic indexes (`id`, `species_id`), common naming conventions (`pokemon`), and generational release timelines (`generation_id`).
-2. **Combat & Biological Mechanics:** Core battle metrics mapping scale properties (`height`, `weight`), growth baselines (`base_experience`), combat attributes (`hp`, `attack`, `defense`, `special_attack`, `special_defense`, `speed`), elemental profiles (`type_1`, `type_2`), and biological mechanics (`egg_group_1`, `egg_group_2`).
-3. **Aesthetic & Multimedia Assets:** Design-oriented properties mapping primary interface layouts including hexadecimal theme color schemes (`color_1`, `color_2`, `color_f`) alongside direct asset links (`url_icon`, `url_image`).
+```{r}
+glimpse(pokemon_data)
+```
 
 ### Why I Chose This Dataset
-I chose this dataset because I have played every generation of Pokemon games since the original on Gameboy. I though it would be interesting to explore a dataset involving data from a game series that I am very familar with as fan.
 
-Make sure to load the data and use inline code for some of this information.
+I chose this dataset because I have played every generation of Pokemon games since the original on Gameboy. I though it would be interesting to explore a dataset involving data from a game series that I am very familiar with as fan.
 
 ## Questions
 
-The two questions you want to answer.
+The two questions we want to answer.
+
+### Question 1
+
+- How does a Pokemon's primary type and generation introduction interact to influence its physical durability compared to its special durability?
+
+### Question 2
+
+- Does a Pokemon's Body Mass Index (BMI) serve as a reliable predictor for its combat speed and physical attack power and follows the biological rule that heavier, bulkier creatures sacrifice speed for raw physical power?
 
 ## Analysis plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+### Question 1
+
+Variables Involved:
+
+- type_1 (primary elemental type)
+
+- generation_id (generation introduced)
+
+- hp (base hit points)
+
+- defense (physical defense)
+
+- special_defense
+
+Variable to Be Created:
+
+- Physical Durability = hp + defense
+
+- Special Durability = hp + special_defense
+
+Plan:
+
+To answer the question we will combine the base stats of hp, defense, and special_defense into overall physical and special durability scores for each Pokemon. Then group the data by type and generation to create a multi-panel line graph that tracks how defensive playstyles evolved over the generations.
+
+### Question 2
+
+Variables Involved:
+
+- weight
+
+- height
+
+- speed
+
+- attack
+
+Variable to Be Created:
+
+- Body Mass Index (BMI) = weight / height
+
+Plan:
+
+To answer this question we will convert each Pokemon's height and weight into a single Body Mass Index (BMI) metric. Then create a scatter plot that uses point positions, sizes, and colors to show how a Pokemon's body size impacts both its speed and physical power.
