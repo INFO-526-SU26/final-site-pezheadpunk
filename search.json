@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Pokemon Dataset Analysis",
+    "section": "",
+    "text": "library(tidyverse)"
+  },
+  {
+    "objectID": "proposal.html#dataset",
+    "href": "proposal.html#dataset",
+    "title": "Pokemon Dataset Analysis",
+    "section": "Dataset",
+    "text": "Dataset\npokemon_df.csv\n\npokemon_data &lt;- readr::read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/refs/heads/main/data/2025/2025-04-01/pokemon_df.csv\")"
+  },
+  {
+    "objectID": "proposal.html#dataset-description",
+    "href": "proposal.html#dataset-description",
+    "title": "Pokemon Dataset Analysis",
+    "section": "Dataset Description",
+    "text": "Dataset Description\n\nProvenance\nThe data in this dataset came from tidytuesday, and was originally sourced and processed using PokéAPI, an open-source, programmatic database containing comprehensive metadata about the Pokemon video game franchise. The dataset combines official in-game mechanical statistics (such as combat attributes and breeding groups) with multimedia design elements pulled directly from community-run encyclopedia archives like Bulbagarden.\n\n\nDimensions and Structure\n\nglimpse(pokemon_data)\n\nRows: 949\nColumns: 22\n$ id              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…\n$ pokemon         &lt;chr&gt; \"bulbasaur\", \"ivysaur\", \"venusaur\", \"charmander\", \"cha…\n$ species_id      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…\n$ height          &lt;dbl&gt; 0.7, 1.0, 2.0, 0.6, 1.1, 1.7, 0.5, 1.0, 1.6, 0.3, 0.7,…\n$ weight          &lt;dbl&gt; 6.9, 13.0, 100.0, 8.5, 19.0, 90.5, 9.0, 22.5, 85.5, 2.…\n$ base_experience &lt;dbl&gt; 64, 142, 236, 62, 142, 240, 63, 142, 239, 39, 72, 178,…\n$ type_1          &lt;chr&gt; \"grass\", \"grass\", \"grass\", \"fire\", \"fire\", \"fire\", \"wa…\n$ type_2          &lt;chr&gt; \"poison\", \"poison\", \"poison\", NA, NA, \"flying\", NA, NA…\n$ hp              &lt;dbl&gt; 45, 60, 80, 39, 58, 78, 44, 59, 79, 45, 50, 60, 40, 45…\n$ attack          &lt;dbl&gt; 49, 62, 82, 52, 64, 84, 48, 63, 83, 30, 20, 45, 35, 25…\n$ defense         &lt;dbl&gt; 49, 63, 83, 43, 58, 78, 65, 80, 100, 35, 55, 50, 30, 5…\n$ special_attack  &lt;dbl&gt; 65, 80, 100, 60, 80, 109, 50, 65, 85, 20, 25, 90, 20, …\n$ special_defense &lt;dbl&gt; 65, 80, 100, 50, 65, 85, 64, 80, 105, 20, 25, 80, 20, …\n$ speed           &lt;dbl&gt; 45, 60, 80, 65, 80, 100, 43, 58, 78, 45, 30, 70, 50, 3…\n$ color_1         &lt;chr&gt; \"#78C850\", \"#78C850\", \"#78C850\", \"#F08030\", \"#F08030\",…\n$ color_2         &lt;chr&gt; \"#A040A0\", \"#A040A0\", \"#A040A0\", NA, NA, \"#A890F0\", NA…\n$ color_f         &lt;chr&gt; \"#81A763\", \"#81A763\", \"#81A763\", NA, NA, \"#DE835E\", NA…\n$ egg_group_1     &lt;chr&gt; \"monster\", \"monster\", \"monster\", \"monster\", \"monster\",…\n$ egg_group_2     &lt;chr&gt; \"plant\", \"plant\", \"plant\", \"dragon\", \"dragon\", \"dragon…\n$ url_icon        &lt;chr&gt; \"//archives.bulbagarden.net/media/upload/7/7b/001MS6.p…\n$ generation_id   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ url_image       &lt;chr&gt; \"https://raw.githubusercontent.com/HybridShivam/Pokemo…\n\n\n\n\nWhy I Chose This Dataset\nI chose this dataset because I have played every generation of Pokemon games since the original on Gameboy. I though it would be interesting to explore a dataset involving data from a game series that I am very familiar with as fan."
+  },
+  {
+    "objectID": "proposal.html#questions",
+    "href": "proposal.html#questions",
+    "title": "Pokemon Dataset Analysis",
+    "section": "Questions",
+    "text": "Questions\nThe two questions we want to answer.\n\nQuestion 1\n\nHow does a Pokemon’s primary type and generation introduction interact to influence its physical durability compared to its special durability?\n\n\n\nQuestion 2\n\nDoes a Pokemon’s Body Mass Index (BMI) serve as a reliable predictor for its combat speed and physical attack power and follows the biological rule that heavier, bulkier creatures sacrifice speed for raw physical power?"
+  },
+  {
+    "objectID": "proposal.html#analysis-plan",
+    "href": "proposal.html#analysis-plan",
+    "title": "Pokemon Dataset Analysis",
+    "section": "Analysis plan",
+    "text": "Analysis plan\n\nQuestion 1\nVariables Involved:\n\ntype_1 (primary elemental type)\ngeneration_id (generation introduced)\nhp (base hit points)\ndefense (physical defense)\nspecial_defense\n\nVariable to Be Created:\n\nPhysical Durability = hp + defense\nSpecial Durability = hp + special_defense\n\nPlan:\nTo answer the question we will combine the base stats of hp, defense, and special_defense into overall physical and special durability scores for each Pokemon. Then group the data by type and generation to create a multi-panel line graph that tracks how defensive playstyles evolved over the generations.\n\n\nQuestion 2\nVariables Involved:\n\nweight\nheight\nspeed\nattack\n\nVariable to Be Created:\n\nBody Mass Index (BMI) = weight / height\n\nPlan:\nTo answer this question we will convert each Pokemon’s height and weight into a single Body Mass Index (BMI) metric. Then create a scatter plot that uses point positions, sizes, and colors to show how a Pokemon’s body size impacts both its speed and physical power."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Project Title",
+    "section": "",
+    "text": "Add project abstract here."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project was developed by [Team Name] For INFO 526 - Data Analysis and Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+  },
+  {
+    "objectID": "presentation.html#quarto",
+    "href": "presentation.html#quarto",
+    "title": "Project title",
+    "section": "Quarto",
+    "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation.html#layouts",
+    "href": "presentation.html#layouts",
+    "title": "Project title",
+    "section": "Layouts",
+    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\nlike\nthis\n\nAnd add footnotes"
+  },
+  {
+    "objectID": "presentation.html#code",
+    "href": "presentation.html#code",
+    "title": "Project title",
+    "section": "Code",
+    "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "presentation.html#plots",
+    "href": "presentation.html#plots",
+    "title": "Project title",
+    "section": "Plots",
+    "text": "Plots"
+  },
+  {
+    "objectID": "presentation.html#plot-and-text",
+    "href": "presentation.html#plot-and-text",
+    "title": "Project title",
+    "section": "Plot and text",
+    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#tables",
+    "href": "presentation.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
+  },
+  {
+    "objectID": "presentation.html#images",
+    "href": "presentation.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation.html#math-expressions",
+    "href": "presentation.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation.html#feeling-adventurous",
+    "href": "presentation.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  }
+]
