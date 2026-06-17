@@ -86,7 +86,7 @@ Variable to Be Created:
 
 Plan:
 
-To answer the question we will combine the base stats of hp, defense, and special_defense into overall physical and special durability scores for each Pokemon. Then group the data by type and generation to create a multi-panel line graph that tracks how defensive playstyles evolved over the generations. If the graph is too busy with all the types, a group of 5 types will be chosen.
+To answer the question we will combine the base stats of hp, defense, and special_defense into overall physical and special durability scores for each Pokemon. Then group the data by type and generation to create a multi-panel line graph that tracks how defensive playstyles evolved over the video game generations. If the graph is too busy with all the types, a group of 5 types will be chosen.
 
 ### Question 2
 
@@ -106,4 +106,4 @@ Variable to Be Created:
 
 Plan:
 
-To answer this question we will convert each Pokemon's height and weight into a single Body Mass Index (BMI) metric. Then create two scatter plots that uses point positions, sizes, and colors to show how a Pokemon's body size impacts its speed, and another its physical power.
+To answer this question we will convert each Pokemon's height and weight into a single Body Mass Index (BMI) metric. Then create two scatter plots that uses point positions, sizes, and colors to show how a Pokemon's body size impacts its speed, and another its physical power. Possibly add in the primary type of the pokemon in some way to also observe which are the "heavier" types.
