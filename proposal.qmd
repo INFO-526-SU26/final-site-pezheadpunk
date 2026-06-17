@@ -107,3 +107,11 @@ Variable to Be Created:
 Plan:
 
 To answer this question we will convert each Pokemon's height and weight into a single Body Mass Index (BMI) metric. Then create two scatter plots that uses point positions, sizes, and colors to show how a Pokemon's body size impacts its speed, and another its physical power. Possibly add in the primary type of the pokemon in some way to also observe which are the "heavier" types.
+
+### Weekly Project Plan Table
+| Task         | Status   | Due      | Priority | Summary                        |
+| ------------ | -------- | -------- | -------- | ------------------------------ |
+| Peer Review  | Complete | 6/17/26  | Low      | Close issues                   |
+| Write-Up     | To Do    | 6/26/26  | High     | Write up project               |
+| Slides       | To Do    | 7/1/26   | High     | Create slides for presentation |
+| Presentation | To Do    | 7/3/26   | High     | Record and post presentation   |
